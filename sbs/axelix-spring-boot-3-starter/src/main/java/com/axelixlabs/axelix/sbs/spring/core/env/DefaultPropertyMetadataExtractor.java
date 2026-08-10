@@ -85,7 +85,8 @@ public class DefaultPropertyMetadataExtractor implements PropertyMetadataExtract
 
     @Async
     @EventListener(ApplicationReadyEvent.class)
-    void loadAndFilterPropertyMetadata() {
+    @Override
+    public void loadAndFilterPropertyMetadata() {
         loadPropertyMetadata();
 
         filterMetadata();

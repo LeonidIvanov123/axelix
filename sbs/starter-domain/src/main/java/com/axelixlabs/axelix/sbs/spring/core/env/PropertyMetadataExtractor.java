@@ -32,4 +32,6 @@ public interface PropertyMetadataExtractor {
      */
     @Nullable
     PropertyMetadata getMetadata(String propertyName);
+
+    void loadAndFilterPropertyMetadata();
 }

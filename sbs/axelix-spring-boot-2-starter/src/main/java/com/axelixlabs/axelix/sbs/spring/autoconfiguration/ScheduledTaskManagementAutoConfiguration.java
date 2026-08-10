@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.actuate.autoconfigure.endpoint.condition.ConditionalOnAvailableEndpoint;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -59,6 +60,7 @@ public class ScheduledTaskManagementAutoConfiguration {
     public ScheduledTaskService scheduledTaskService(
             ScheduledTasksRegistry scheduledTasksRegistry,
             List<TaskRescheduler> taskReschedulers,
+            @Qualifier("applicationTaskExecutor")
             ObjectProvider<ThreadPoolTaskExecutor> taskExecutor) {
         return new ScheduledTaskService(
                 scheduledTasksRegistry,
